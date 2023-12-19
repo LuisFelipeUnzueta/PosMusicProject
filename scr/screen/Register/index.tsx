@@ -2,12 +2,12 @@ import { Box, Divider, Flex, Heading, Input, useToast, Text } from "native-base"
 import Button from "../../components/Button";
 import UserContext from "../../context/user";
 import { useContext, useEffect, useState } from "react";
-import { db } from "../../../App";
-import { login } from "../../services/login";
+import { register } from "../../services/register";
 
 
 
-export default function Login() {
+
+export default function Register() {
     const userData = useContext(UserContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -15,22 +15,14 @@ export default function Login() {
     const toast = useToast();
 
     useEffect(() => {
-      createTable()
+    
 
     }, []);
 
-    const createTable = () => {
-      db.transaction((tx) => {
-        tx.executeSql(
-          "CREATE TABLE IF NOT EXIST "
-          + "Users "
-          + "(username TEXT, password TEXT, token TEXT);"
-        )
-      })
-    }
+   
 
-    const handleLogin = () => {
-      login({
+    const handleRegister = () => {
+      register({
         username: username,
         password: password
       })
@@ -51,7 +43,7 @@ export default function Login() {
         console.error(error);
         toast.show({
           render: () => {
-            return <Box bg="red.400" px="2" py="1" rounded="sm">Usuário ou senha inválido!</Box>;
+            return <Box bg="red.400" px="2" py="1" rounded="sm">Register failed!</Box>;
           }
          })
       });
@@ -60,19 +52,14 @@ export default function Login() {
 
     return (
         <Flex p={5} flex={1} justifyContent='center' alignItems='center'>
-            <Heading>Login</Heading>
+            <Heading>Register</Heading>
             <Input mt={2} variant={"rounded"} placeholder="User name" onChangeText={(event: string) => setUsername(event)}/>
             <Input mt={2} variant={"rounded"} placeholder="Password" onChangeText={(event: string) => setPassword(event)}/>
             <Flex width='100%'>
-                <Button content="Sign in" variation="primary" variant="rounded" handleClick={handleLogin
+                <Button content="Register" variant="rounded" variation="primary" handleClick={handleRegister
           } />
             </Flex>
-            <Box padding={16}>
-              <Text>Click here to Register!</Text>
-              <Button variant="rounded" content="Register" variation="secondary" handleClick={ () => {}
-          } />
-            </Box>
-            
+                        
         </Flex>
     )
 }

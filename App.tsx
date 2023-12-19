@@ -5,6 +5,7 @@ import UserContext, { User } from './scr/context/user';
 import Wrapper from './scr/screen/Wrapper';
 import { useEffect, useState } from 'react';
 import SQLite from "react-native-sqlite-storage";
+import { NavigationContainer } from "@react-navigation/native";
 import Home from './scr/screen/Home';
 
 
@@ -29,8 +30,10 @@ export default function App() {
   return (
     <NativeBaseProvider theme={Theme}>
       <UserContext.Provider value={{user, setUser}}>
-        
-        <Wrapper />
+        <NavigationContainer>
+         <Wrapper />
+        </NavigationContainer>
+       
       </UserContext.Provider>
     </NativeBaseProvider>
   );

@@ -2,8 +2,8 @@ import { createContext, useState} from "react";
 
 // Definindo o tipo para o usuário
 export type User = {
-    name: string;
-    email: string;
+    username: string;
+    password: string;
     token: string | null;
   };
   

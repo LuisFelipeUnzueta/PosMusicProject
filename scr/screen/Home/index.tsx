@@ -48,7 +48,7 @@ export default function Home() {
         >
           <Heading color="secondary.100" fontSize="4xl">
             Wellcome back</Heading>
-          <Text color={"secondary.200"} fontSize={24}>{userData.user!.name}</Text>
+          <Text color={"secondary.200"} fontSize={24}>{userData.user!.username}</Text>
           <FlatList
             data={albums}
             renderItem={({ item }) => (
