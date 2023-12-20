@@ -1,7 +1,7 @@
 import api from "."
 
-export const getAlbum = (token: string) => {
-    return api.get("/albums", {
+export const getStories = (token: string) => {
+    return api.get("/stories", {
         headers: {Authorization: `Bearer ${token}`}
     });
 }

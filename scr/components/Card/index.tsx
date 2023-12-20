@@ -15,7 +15,7 @@ export default function Card ({img , album, setSelectedAlbum} : Props) {
             <Image 
                 m={2} 
                 size="x1"
-                style={{height: Dimensions.get('screen').width * 0.5, width: Dimensions.get('screen').width * 0.5, resizeMode:'stretch' }}
+                style={{height: Dimensions.get('screen').width * 0.4, width: Dimensions.get('screen').width * 0.4, resizeMode:'stretch' }}
                 alt="Alternate text"
                 source={{uri: img}} />
         </TouchableOpacity>

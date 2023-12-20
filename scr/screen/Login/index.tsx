@@ -1,4 +1,4 @@
-import { Box, Divider, Flex, Heading, Input, useToast, Text } from "native-base";
+import { Box, Flex, Heading, Input, useToast, Text } from "native-base";
 import Button from "../../components/Button";
 import UserContext from "../../context/user";
 import { useContext, useEffect, useState } from "react";
@@ -42,8 +42,8 @@ export default function Login() {
         //   )
         // });
         userData.setUser({
-          username: "Luis Unzueta",
-          password: "luis@gmail.com",
+          username: username,
+          password: password,
           token: response.data.token
         });
       })
@@ -67,10 +67,8 @@ export default function Login() {
                 <Button content="Sign in" variation="primary" variant="rounded" handleClick={handleLogin
           } />
             </Flex>
-            <Box padding={16}>
-              <Text>Click here to Register!</Text>
-              <Button variant="rounded" content="Register" variation="secondary" handleClick={ () => {}
-          } />
+            <Box padding={8}>
+              <Text>If you are a new here go to Register tab!</Text>
             </Box>
             
         </Flex>

@@ -12,7 +12,9 @@ export default function Wrapper() {
     const userData = useContext(UserContext);
     return (
         userData.user != null ? <Home /> : 
-        <Tab.Navigator>
+        <Tab.Navigator 
+            screenOptions={{tabBarActiveTintColor: 'darkblue',
+            tabBarInactiveTintColor: 'gray', tabBarLabelStyle: { fontSize: 16 } }} >
             <Tab.Screen name="Login" component={Login}/>
             <Tab.Screen name="Register" component={Register}/>
         </Tab.Navigator>

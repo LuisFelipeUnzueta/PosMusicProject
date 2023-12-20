@@ -33,12 +33,18 @@ export default function Register() {
         //     [name, email, token]
         //   )
         // });
-        userData.setUser({
-          username: "Luis Unzueta",
-          password: "luis@gmail.com",
-          token: response.data.token
-        });
-      })
+      //   userData.setUser({
+      //     username: username,
+      //     password: password,
+      //     token: response.data.token
+      //   });
+      // })
+      console.log(response);
+      toast.show({
+        render: () => {
+          return <Box bg="red.400" px="2" py="1" rounded="sm">Register Success! Go to Login!</Box>;
+        }
+       })})
       .catch(function (error) {
         console.error(error);
         toast.show({
